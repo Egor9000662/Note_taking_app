@@ -1,3 +1,146 @@
-h1 {
-  color: #999;
+@import "~bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+$color_dark: rgba(
+    $color: #000000,
+    $alpha: 0.8,
+);
+$color_light: rgb(220, 220, 220);
+$color_gray: #939597;
+$color_yellow: #f5df4d;
+
+%button_style {
+    border-radius: 30px;
+    padding: 10px 30px;
+    transition: 0.5s;
+    font-weight: 500;
+
+    &:hover {
+        background: $color_yellow;
+        color: $color_dark;
+    }
+    &:active {
+        outline: 0;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+   
+    background-size: cover;
+}
+
+nav {
+    background: $color_dark;
+    padding: 20px 0;
+    box-shadow: 0px 0px 5px 5px rgb(6 19 28 / 29%);
+
+    .nav__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav__icons {
+        display: flex;
+        align-items: center;
+
+        color: $color_light;
+        font-size: 14px;
+        a {
+            color: $color_light;
+            transition: 0.5s;
+            display: block;
+            &:hover {
+                color: $color_yellow;
+            }
+        }
+    }
+    .nav__icon {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .nav__author {
+        margin-left: 20px;
+
+        i {
+            color: $color_yellow;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+    }
+    .nav__buttons--add {
+        color: $color_yellow;
+        border: 1px solid $color_yellow;
+        margin-right: 20px;
+        background: transparent;
+        @extend %button_style;
+    }
+
+    .nav__buttons--close {
+        border: none;
+        background: $color_gray;
+        color: $color_dark;
+        @extend %button_style;
+    }
+}
+
+$name: "card";
+.#{$name} {
+    display: flex;
+    width: 250px;
+    min-height: 300px;
+    box-shadow: 2px 2px 5px 1px rgb(6 19 28 / 29%);
+    border: none;
+    border-radius: 5px;
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $color_dark;
+        color: $color_light;
+        padding: 8px;
+        border-radius: 5px 5px 0 0;
+    }
+    &__btn--delete {
+        background: none;
+        border: none;
+        color: $color_light;
+        padding: 0 6px;
+        transition: 0.5s;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    &_edit {
+        .#{$name}__form {
+            display: block;
+        }
+    }
+
+    &__main {
+        padding: 8px;
+    }
+
+    &__advice {
+        font-size: 12px;
+        color: $color_gray;
+    }
+    &__content {
+        user-select: none;
+        font-size: 12px;
+    }
+    &__form {
+        display: none;
+        font-size: 12px;
+    }
+}
+
+.dnd {
+    position: absolute;
 }
